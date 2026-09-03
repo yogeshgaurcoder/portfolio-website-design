@@ -1,27 +1,189 @@
-import { Navigation } from "@/components/navigation"
-import { HeroSection } from "@/components/hero-section"
-import { StatsSection } from "@/components/stats-section"
-import { AboutSection } from "@/components/about-section"
-import { SkillsSection } from "@/components/skills-section"
-import { ExperienceSection } from "@/components/experience-section"
-import { ProjectsSection } from "@/components/projects-section"
-import { EducationSection } from "@/components/education-section"
-import { ContactSection } from "@/components/contact-section"
-import { Footer } from "@/components/footer"
+"use client"
+
+import { motion } from "framer-motion"
+import {
+  ArrowDown,
+  ArrowUpRight,
+  BarChart3,
+  BrainCircuit,
+  CheckCircle2,
+  Database,
+  Download,
+  ExternalLink,
+  FileSpreadsheet,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  Play,
+  Send,
+  Sparkles,
+  Terminal,
+  X,
+  Zap,
+} from "lucide-react"
+import { useState } from "react"
+
+const skills = [
+  ["SQL", "Advanced querying & reporting", Database],
+  ["Python", "Automation & data workflows", Terminal],
+  ["Power BI", "Dashboards & storytelling", BarChart3],
+  ["Tableau", "Interactive analytics", BarChart3],
+  ["Advanced Excel", "Reporting & modeling", FileSpreadsheet],
+  ["AWS", "Athena · Glue · S3", Zap],
+]
+
+const experience = [
+  {
+    date: "11/2019 — Present",
+    role: "Senior Data Analyst",
+    company: "Clear Demand India Private Ltd",
+    note: "Bungee Tech was acquired by Clear Demand",
+    current: true,
+    points: [
+      "Create Power BI dashboards and automated reports for management review.",
+      "Write SQL queries across multiple data sources for reporting and analysis.",
+      "Analyze trends and translate complex datasets into clear visual stories.",
+      "Use Python scripting to optimize existing processes and automate repetitive work.",
+      "Collaborate across departments to maintain data accuracy and integrity.",
+    ],
+  },
+  {
+    date: "10/2018 — 10/2019",
+    role: "MIS Executive",
+    company: "Eshopbox Ecommerce Pvt Ltd",
+    points: [
+      "Prepared daily brand, sales and returns reports and shared insights with clients.",
+      "Managed marketplace listings across Amazon, Flipkart, Myntra and others.",
+      "Analyzed, cleansed and modeled operational data using advanced Excel functions.",
+      "Created MIS reports for executive management and summarized key performance metrics.",
+    ],
+  },
+  {
+    date: "12/2017 — 09/2018",
+    role: "EDP Analyst",
+    company: "Wardrogue India Private Limited",
+    points: [
+      "Prepared daily brand search, sales and clicks reports in Excel.",
+      "Performed data scraping, cleansing and analysis using advanced Excel functions.",
+      "Maintained and updated backend databases and supported data collection workflows.",
+      "Provided analytical support for strategic initiatives and projects.",
+    ],
+  },
+  {
+    date: "02/2017 — 10/2017",
+    role: "Data Consultant · Contractual",
+    company: "RMS Risk Management Solution",
+    points: [
+      "Analyzed, cleansed and enhanced data provided by re-insurance clients.",
+      "Applied differentiated coding for account pricing using occupancy codes.",
+      "Scrubbed and analyzed COPE data: Construction, Occupancy, Protection and Exposure.",
+      "Developed dashboards and established protocols for accurate data collection.",
+    ],
+  },
+]
+
+const education = [
+  ["Bachelor of Computer Application", "Indira Gandhi National Open University", "12/2022"],
+  ["Diploma Engineering, Information Technology", "Board of Technical Education", "06/2016"],
+]
+
+const certifications = [
+  "Certificate of Completion in Tableau — 365 Data Science",
+  "Certificate in SQL and Excel — LinkedIn",
+]
 
 export default function Page() {
+  const [open, setOpen] = useState(false)
+
+  const go = (id: string) => {
+    setOpen(false)
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+  }
+
   return (
-    <main className="min-h-screen bg-background">
-      <Navigation />
-      <HeroSection />
-      <StatsSection />
-      <AboutSection />
-      <SkillsSection />
-      <ExperienceSection />
-      <ProjectsSection />
-      <EducationSection />
-      <ContactSection />
-      <Footer />
+    <main className="site-shell">
+      <div className="noise" />
+      <div className="grid-bg" />
+      <header className="nav-wrap">
+        <nav className="nav container">
+          <button className="brand" onClick={() => go("home")} aria-label="Home">
+            <span className="brand-mark">YG</span>
+            <span>YOGESH<span className="brand-dot">.</span></span>
+          </button>
+          <div className={`nav-links ${open ? "open" : ""}`}>
+            {[["about", "About"], ["skills", "Stack"], ["experience", "Experience"], ["education", "Education"], ["contact", "Contact"]].map(([id, label]) => (
+              <button key={id} onClick={() => go(id)}>{label}</button>
+            ))}
+          </div>
+          <div className="nav-actions">
+            <a className="icon-link" href="https://www.linkedin.com/in/yogeshgauryt/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin size={17}/></a>
+            <a className="resume-btn" href="/Yogesh_Gaur_Resume.pdf" download><Download size={16}/> Resume</a>
+            <button className="menu-btn" onClick={() => setOpen(!open)} aria-label="Menu">{open ? <X/> : <Menu/>}</button>
+          </div>
+        </nav>
+      </header>
+
+      <section id="home" className="hero container">
+        <div className="hero-copy">
+          <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} className="eyebrow">
+            <span className="pulse"/> SENIOR DATA ANALYST <span className="eyebrow-line"/> DELHI, INDIA
+          </motion.div>
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .08 }}>
+            DATA <span>DRIVEN.</span><br/>DECISIONS <span>SHARP.</span>
+          </motion.h1>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: .2 }} className="hero-text">
+            I turn messy datasets into clear dashboards, reliable reporting and actionable business insight — with SQL, Python, Power BI, Tableau, Excel and AWS.
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .28 }} className="hero-buttons">
+            <button className="primary-btn" onClick={() => go("experience")}>Explore my work <ArrowUpRight size={18}/></button>
+            <button className="ghost-btn" onClick={() => go("contact")}>Let's connect <Mail size={17}/></button>
+          </motion.div>
+          <div className="hero-meta"><span><CheckCircle2 size={15}/> 8+ years analytics experience</span><span><MapPin size={15}/> New Delhi, India</span></div>
+        </div>
+
+        <motion.div initial={{ opacity: 0, scale: .94 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .15 }} className="hero-visual">
+          <div className="orbit orbit-a"/><div className="orbit orbit-b"/>
+          <div className="data-card">
+            <div className="window-bar"><span/><span/><span/><small>analytics.engine</small></div>
+            <div className="terminal-code"><p><i>01</i> <b>SELECT</b> insight, value</p><p><i>02</i> <b>FROM</b> business_data</p><p><i>03</i> <b>WHERE</b> quality = <em>true</em></p><p><i>04</i> <b>GROUP BY</b> decision</p><p><i>05</i> <b>ORDER BY</b> impact <em>DESC</em>;</p></div>
+            <div className="mini-chart"><div className="chart-head"><span>DATA SIGNAL</span><strong>+ INSIGHT</strong></div><div className="bars">{[35,54,42,72,61,88,78,96,82,100].map((h,i)=><span key={i} style={{height:`${h}%`}}/>)}</div></div>
+            <div className="floating-pill pill-one"><BrainCircuit size={16}/> Clean data</div>
+            <div className="floating-pill pill-two"><Zap size={16}/> Automate</div>
+          </div>
+        </motion.div>
+        <button className="scroll-cue" onClick={() => go("about")}><span>SCROLL TO DISCOVER</span><ArrowDown size={16}/></button>
+      </section>
+
+      <section className="marquee"><div>{["SQL", "PYTHON", "POWER BI", "TABLEAU", "EXCEL", "AWS", "DATA ANALYSIS", "AUTOMATION"].map((x,i)=><span key={i}>{x} <b>✦</b></span>)}</div></section>
+
+      <section id="about" className="section container">
+        <div className="section-kicker">01 / PROFILE</div>
+        <div className="about-grid">
+          <div><h2>ANALYTICS WITH<br/><span>INTENT.</span></h2></div>
+          <div className="about-copy"><p className="lead">Highly skilled in data analysis, statistical techniques, visualization and database management — focused on making information useful.</p><p>My work spans data collection, cleaning, validation, reporting and visualization. I enjoy building methodical processes that keep data accurate, explain complex datasets simply, and help stakeholders make better decisions.</p><div className="quote"><Sparkles size={18}/><span>“Reliable data. Clear story. Better decision.”</span></div></div>
+        </div>
+      </section>
+
+      <section id="skills" className="section section-dark">
+        <div className="container"><div className="section-kicker">02 / TOOLKIT</div><div className="section-title-row"><h2>THE <span>STACK</span></h2><p>Tools I use to move from raw data → trusted insight.</p></div>
+          <div className="skill-grid">{skills.map(([name, desc, Icon], i) => { const C = Icon as any; return <motion.div whileHover={{ y:-7 }} transition={{duration:.2}} className="skill-card" key={name as string}><div className="skill-top"><span>0{i+1}</span><C size={22}/></div><h3>{name as string}</h3><p>{desc as string}</p><div className="skill-line"><span/></div></motion.div>})}</div>
+        </div>
+      </section>
+
+      <section id="experience" className="section container">
+        <div className="section-kicker">03 / CAREER</div><div className="section-title-row"><h2>EXPERIENCE <span>IN MOTION</span></h2><p>A progression from operational reporting to senior-level analytics, automation and visualization.</p></div>
+        <div className="timeline">{experience.map((job,i)=><motion.article initial={{opacity:0,x:-15}} whileInView={{opacity:1,x:0}} viewport={{once:true,amount:.2}} transition={{delay:i*.05}} className="job" key={job.role}><div className="job-marker"><span>{String(i+1).padStart(2,"0")}</span></div><div className="job-main"><div className="job-head"><div><span className="job-date">{job.date}</span><h3>{job.role}</h3><p>{job.company}{job.note ? ` · ${job.note}` : ""}</p></div>{job.current && <span className="current">CURRENT</span>}</div><ul>{job.points.map(p=><li key={p}><CheckCircle2 size={15}/>{p}</li>)}</ul></div></motion.article>)}</div>
+      </section>
+
+      <section className="impact section-dark"><div className="container"><div className="impact-grid"><div><div className="section-kicker">04 / WHAT I DO</div><h2>FROM DATA<br/><span>TO CLARITY.</span></h2></div><div className="impact-list">{[["01","Analyze","Find patterns, trends and the signal inside complex datasets."],["02","Visualize","Build dashboards, charts and reports people can actually use."],["03","Validate","Protect data quality through cleansing, checks and reliable processes."],["04","Automate","Use Python and repeatable workflows to reduce manual effort."]].map(x=><div className="impact-item" key={x[0]}><span>{x[0]}</span><div><h3>{x[1]}</h3><p>{x[2]}</p></div><ArrowUpRight size={18}/></div>)}</div></div></div></section>
+
+      <section id="education" className="section container"><div className="section-kicker">05 / EDUCATION</div><div className="education-grid"><div><h2>BUILT ON<br/><span>FOUNDATION.</span></h2><p>Formal education in computer applications and information technology, backed by hands-on analytics experience.</p></div><div className="edu-list">{education.map((e,i)=><div className="edu-card" key={e[0]}><span>0{i+1}</span><div><h3>{e[0]}</h3><p>{e[1]}</p></div><strong>{e[2]}</strong></div>)}<div className="cert-box"><div className="cert-icon"><Sparkles/></div><div><small>CERTIFICATIONS</small>{certifications.map(c=><p key={c}><CheckCircle2 size={14}/>{c}</p>)}</div></div></div></div></section>
+
+      <section id="contact" className="contact-section"><div className="container contact-inner"><div><div className="section-kicker">06 / CONTACT</div><h2>LET'S BUILD<br/><span>SOMETHING USEFUL.</span></h2><p>Open to conversations around data analytics, reporting, BI and automation.</p></div><div className="contact-card"><a href="mailto:contactyogesh247@gmail.com"><span><Mail size={19}/></span><div><small>EMAIL</small><strong>contactyogesh247@gmail.com</strong></div><ArrowUpRight/></a><a href="tel:+918800279561"><span><Send size={19}/></span><div><small>PHONE</small><strong>+91 8800279561</strong></div><ArrowUpRight/></a><div className="contact-location"><MapPin size={19}/><div><small>BASED IN</small><strong>Uttam Nagar, New Delhi, India</strong></div></div></div></div></section>
+
+      <footer><div className="container footer-row"><div><span className="brand-mark">YG</span> <strong>YOGESH GAUR</strong></div><span>DATA ANALYST · SQL · PYTHON · BI</span><a href="/Yogesh_Gaur_Resume.pdf" download>Download Resume <Download size={14}/></a></div></footer>
     </main>
   )
 }
