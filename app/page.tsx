@@ -38,61 +38,79 @@ const experience = [
   {
     date: "11/2019 — Present",
     role: "Senior Data Analyst",
-    company: "Clear Demand India Private Ltd",
-    note: "Bungee Tech was acquired by Clear Demand",
+    company: "Clear Demand India Pvt. Ltd.",
+    note: "formerly Bungee Tech",
     current: true,
     points: [
-      "Create Power BI dashboards and automated reports for management review.",
-      "Write SQL queries across multiple data sources for reporting and analysis.",
-      "Analyze trends and translate complex datasets into clear visual stories.",
-      "Use Python scripting to optimize existing processes and automate repetitive work.",
-      "Collaborate across departments to maintain data accuracy and integrity.",
+      "Optimised complex SQL queries, improving reporting efficiency by 30% and reducing query execution time.",
+      "Developed interactive Power BI dashboards, reducing manual reporting effort by 40% and improving KPI visibility.",
+      "Automated data workflows using Python, saving 10+ hours per week and minimising manual processing errors.",
+      "Processed and analysed 1M+ row datasets using AWS Athena and S3, improving query performance and accessibility.",
+      "Identified data trends that improved decision-making efficiency by 25% across business units.",
+      "Partnered with stakeholders and cross-functional teams on requirements, data governance and reporting consistency.",
     ],
   },
   {
     date: "10/2018 — 10/2019",
     role: "MIS Executive",
-    company: "Eshopbox Ecommerce Pvt Ltd",
+    company: "Eshopbox Ecommerce Pvt. Ltd.",
     points: [
-      "Prepared daily brand, sales and returns reports and shared insights with clients.",
-      "Managed marketplace listings across Amazon, Flipkart, Myntra and others.",
-      "Analyzed, cleansed and modeled operational data using advanced Excel functions.",
-      "Created MIS reports for executive management and summarized key performance metrics.",
+      "Generated automated daily MIS reports, improving reporting efficiency by 20%.",
+      "Reduced manual effort using VLOOKUP, Pivot Tables and complex Excel formulas.",
+      "Performed data cleaning and analysis to extract actionable insights for operations teams.",
+      "Developed MIS reports highlighting key performance metrics for decision-making.",
     ],
   },
   {
     date: "12/2017 — 09/2018",
     role: "EDP Analyst",
-    company: "Wardrogue India Private Limited",
+    company: "Wardrogue India Pvt. Ltd.",
     points: [
-      "Prepared daily brand search, sales and clicks reports in Excel.",
-      "Performed data scraping, cleansing and analysis using advanced Excel functions.",
-      "Maintained and updated backend databases and supported data collection workflows.",
-      "Provided analytical support for strategic initiatives and projects.",
+      "Generated daily performance reports using Excel for data-driven decision-making.",
+      "Performed web data scraping and cleaning to improve data accuracy and usability.",
+      "Maintained and updated backend databases to ensure data integrity.",
+      "Supported budgeting and financial planning through data analysis.",
     ],
   },
   {
     date: "02/2017 — 10/2017",
     role: "Data Consultant · Contractual",
-    company: "RMS Risk Management Solution",
+    company: "RMS Risk Management Solutions",
     points: [
-      "Analyzed, cleansed and enhanced data provided by re-insurance clients.",
-      "Applied differentiated coding for account pricing using occupancy codes.",
-      "Scrubbed and analyzed COPE data: Construction, Occupancy, Protection and Exposure.",
-      "Developed dashboards and established protocols for accurate data collection.",
+      "Analysed, cleansed and enhanced datasets provided by reinsurance clients to meet quality standards.",
+      "Applied differentiated coding for account pricing based on occupancy codes from Schedule of Values.",
+      "Scrubbed and analysed COPE data: Construction, Occupancy, Protection and Exposure.",
+      "Developed dashboards for tracking performance against key reinsurance metrics.",
     ],
   },
 ]
 
 const education = [
-  ["Bachelor of Computer Application", "Indira Gandhi National Open University", "12/2022"],
-  ["Diploma Engineering, Information Technology", "Board of Technical Education", "06/2016"],
+  ["Master of Business Administration (MBA)", "University of Delhi", "11/2025"],
+  ["Bachelor of Computer Applications (BCA)", "Indira Gandhi National Open University (IGNOU)", "12/2022"],
+  ["Diploma in Engineering — Information Technology", "Board of Technical Education, Delhi", "08/2016"],
+]
+
+const projects = [
+  {
+    title: "Sales Performance Dashboard",
+    description: "End-to-end Power BI dashboard tracking revenue, sales trends and KPIs across business units, reducing manual reporting turnaround time by 40%.",
+    icon: BarChart3,
+    tags: ["Power BI", "KPIs", "Reporting"],
+  },
+  {
+    title: "SQL Data Analysis & Optimisation",
+    description: "Complex multi-join analysis on large datasets to identify business trends, with query optimisation techniques reducing average execution time by 30%.",
+    icon: Database,
+    tags: ["SQL", "Query Optimisation", "Analytics"],
+  },
 ]
 
 const certifications = [
   "Certificate of Completion in Tableau — 365 Data Science",
   "Certificate in SQL and Excel — LinkedIn",
 ]
+
 
 export default function Page() {
   const [open, setOpen] = useState(false)
@@ -110,10 +128,10 @@ export default function Page() {
         <nav className="nav container">
           <button className="brand" onClick={() => go("home")} aria-label="Home">
             <span className="brand-mark">YG</span>
-            <span>YOGESH<span className="brand-dot">.</span></span>
+            <span>YOGESH <span className="brand-dot">GAUR.</span></span>
           </button>
           <div className={`nav-links ${open ? "open" : ""}`}>
-            {[["about", "About"], ["skills", "Stack"], ["experience", "Experience"], ["education", "Education"], ["contact", "Contact"]].map(([id, label]) => (
+            {[["about", "About"], ["skills", "Stack"], ["experience", "Experience"], ["projects", "Projects"], ["education", "Education"], ["contact", "Contact"]].map(([id, label]) => (
               <button key={id} onClick={() => go(id)}>{label}</button>
             ))}
           </div>
@@ -140,7 +158,7 @@ export default function Page() {
             <button className="primary-btn" onClick={() => go("experience")}>Explore my work <ArrowUpRight size={18}/></button>
             <button className="ghost-btn" onClick={() => go("contact")}>Let's connect <Mail size={17}/></button>
           </motion.div>
-          <div className="hero-meta"><span><CheckCircle2 size={15}/> 8+ years analytics experience</span><span><MapPin size={15}/> New Delhi, India</span></div>
+          <div className="hero-meta"><span><CheckCircle2 size={15}/> 8+ years of experience in retail pricing & e-commerce analytics</span><span><MapPin size={15}/> New Delhi, India</span></div>
         </div>
 
         <motion.div initial={{ opacity: 0, scale: .94 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .15 }} className="hero-visual">
@@ -179,9 +197,13 @@ export default function Page() {
 
       <section className="impact section-dark"><div className="container"><div className="impact-grid"><div><div className="section-kicker">04 / WHAT I DO</div><h2>FROM DATA<br/><span>TO CLARITY.</span></h2></div><div className="impact-list">{[["01","Analyze","Find patterns, trends and the signal inside complex datasets."],["02","Visualize","Build dashboards, charts and reports people can actually use."],["03","Validate","Protect data quality through cleansing, checks and reliable processes."],["04","Automate","Use Python and repeatable workflows to reduce manual effort."]].map(x=><div className="impact-item" key={x[0]}><span>{x[0]}</span><div><h3>{x[1]}</h3><p>{x[2]}</p></div><ArrowUpRight size={18}/></div>)}</div></div></div></section>
 
-      <section id="education" className="section container"><div className="section-kicker">05 / EDUCATION</div><div className="education-grid"><div><h2>BUILT ON<br/><span>FOUNDATION.</span></h2><p>Formal education in computer applications and information technology, backed by hands-on analytics experience.</p></div><div className="edu-list">{education.map((e,i)=><div className="edu-card" key={e[0]}><span>0{i+1}</span><div><h3>{e[0]}</h3><p>{e[1]}</p></div><strong>{e[2]}</strong></div>)}<div className="cert-box"><div className="cert-icon"><Sparkles/></div><div><small>CERTIFICATIONS</small>{certifications.map(c=><p key={c}><CheckCircle2 size={14}/>{c}</p>)}</div></div></div></div></section>
+      <section id="projects" className="section section-dark"><div className="container"><div className="section-kicker">05 / KEY PROJECTS</div><div className="section-title-row"><h2>SELECTED <span>WORK.</span></h2><p>Projects highlighted directly from my latest professional resume.</p></div><div className="skill-grid project-grid">{projects.map((project,i)=>{const C=project.icon;return <motion.article whileHover={{y:-7}} className="skill-card project-card" key={project.title}><div className="skill-top"><span>0{i+1}</span><C size={22}/></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-tags">{project.tags.map(tag=><span key={tag}>{tag}</span>)}</div></motion.article>})}</div></div></section>
 
-      <section id="contact" className="contact-section"><div className="container contact-inner"><div><div className="section-kicker">06 / CONTACT</div><h2>LET'S BUILD<br/><span>SOMETHING USEFUL.</span></h2><p>Open to conversations around data analytics, reporting, BI and automation.</p></div><div className="contact-card"><a href="mailto:contactyogesh247@gmail.com"><span><Mail size={19}/></span><div><small>EMAIL</small><strong>contactyogesh247@gmail.com</strong></div><ArrowUpRight/></a><a href="tel:+918800279561"><span><Send size={19}/></span><div><small>PHONE</small><strong>+91 8800279561</strong></div><ArrowUpRight/></a><div className="contact-location"><MapPin size={19}/><div><small>BASED IN</small><strong>Uttam Nagar, New Delhi, India</strong></div></div></div></div></section>
+      <section id="education" className="section container"><div className="section-kicker">06 / EDUCATION</div><div className="education-grid"><div><h2>BUILT ON<br/><span>FOUNDATION.</span></h2><p>Formal education in business administration, computer applications and information technology, backed by hands-on analytics experience.</p></div><div className="edu-list">{education.map((e,i)=><div className="edu-card" key={e[0]}><span>0{i+1}</span><div><h3>{e[0]}</h3><p>{e[1]}</p></div><strong>{e[2]}</strong></div>)}<div className="cert-box"><div className="cert-icon"><Sparkles/></div><div><small>CERTIFICATIONS — KEPT FROM PREVIOUS VERSION</small>{certifications.map(c=><p key={c}><CheckCircle2 size={14}/>{c}</p>)}</div></div></div></div></section>
+
+      <section className="section container"><div className="section-kicker">07 / INTERNSHIP</div><div className="internship-card"><div><span>CONCOR · GOVT. OF INDIA ENTERPRISE</span><h2>Database Management Systems</h2><p>4-Month Internship · Container Corporation of India Ltd. (CONCOR), New Delhi</p></div><Database size={28}/></div></section>
+
+      <section id="contact" className="contact-section"><div className="container contact-inner"><div><div className="section-kicker">06 / CONTACT</div><h2>LET'S BUILD<br/><span>SOMETHING USEFUL.</span></h2><p>Open to conversations around data analytics, reporting, business intelligence and automation.</p></div><div className="contact-card"><a href="mailto:contactyogesh247@gmail.com"><span><Mail size={19}/></span><div><small>EMAIL</small><strong>contactyogesh247@gmail.com</strong></div><ArrowUpRight/></a><a href="tel:+918800279561"><span><Send size={19}/></span><div><small>PHONE</small><strong>+91 8800279561</strong></div><ArrowUpRight/></a><div className="contact-location"><MapPin size={19}/><div><small>BASED IN</small><strong>New Delhi, India</strong></div></div></div></div></section>
 
       <footer><div className="container footer-row"><div><span className="brand-mark">YG</span> <strong>YOGESH GAUR</strong></div><span>DATA ANALYST · SQL · PYTHON · BI</span><a href="/Yogesh_Gaur_Resume.pdf" download>Download Resume <Download size={14}/></a></div></footer>
     </main>
