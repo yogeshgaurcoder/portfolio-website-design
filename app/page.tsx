@@ -205,7 +205,25 @@ export default function Page() {
 
       <section id="contact" className="contact-section"><div className="container contact-inner"><div><div className="section-kicker">06 / CONTACT</div><h2>LET'S BUILD<br/><span>SOMETHING USEFUL.</span></h2><p>Open to conversations around data analytics, reporting, business intelligence and automation.</p></div><div className="contact-card"><a href="mailto:contactyogesh247@gmail.com"><span><Mail size={19}/></span><div><small>EMAIL</small><strong>contactyogesh247@gmail.com</strong></div><ArrowUpRight/></a><a href="tel:+918800279561"><span><Send size={19}/></span><div><small>PHONE</small><strong>+91 8800279561</strong></div><ArrowUpRight/></a><div className="contact-location"><MapPin size={19}/><div><small>BASED IN</small><strong>New Delhi, India</strong></div></div></div></div></section>
 
-      <footer><div className="container footer-row"><div><span className="brand-mark">YG</span> <strong>YOGESH GAUR</strong></div><span>DATA ANALYST · SQL · PYTHON · BI</span><a href="/Yogesh_Gaur_Resume.pdf" download>Download Resume <Download size={14}/></a></div></footer>
+      <footer className="site-footer">
+  <div className="container footer-row">
+
+    <div className="footer-brand">
+      <span className="brand-mark">YG</span>
+      <strong>YOGESH GAUR</strong>
+    </div>
+
+    <div className="footer-copy">
+      © 2026 <span>Yogesh Gaur</span>. All Rights Reserved.
+    </div>
+
+    <div className="footer-location">
+      <MapPin size={17} />
+      <span>New Delhi, India</span>
+    </div>
+
+  </div>
+</footer>
     </main>
   )
 }
