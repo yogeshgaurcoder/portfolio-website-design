@@ -21,6 +21,7 @@ import {
   Sparkles,
   Terminal,
   X,
+  Youtube,
   Zap,
 } from "lucide-react"
 import { useState } from "react"
@@ -203,7 +204,7 @@ export default function Page() {
 
       <section className="section container"><div className="section-kicker">07 / INTERNSHIP</div><div className="internship-card"><div><span>CONCOR · GOVT. OF INDIA ENTERPRISE</span><h2>Database Management Systems</h2><p>4-Month Internship · Container Corporation of India Ltd. (CONCOR), New Delhi</p></div><Database size={28}/></div></section>
 
-      <section id="contact" className="contact-section"><div className="container contact-inner"><div><div className="section-kicker">06 / CONTACT</div><h2>LET'S BUILD<br/><span>SOMETHING USEFUL.</span></h2><p>Open to conversations around data analytics, reporting, business intelligence and automation.</p></div><div className="contact-card"><a href="mailto:contactyogesh247@gmail.com"><span><Mail size={19}/></span><div><small>EMAIL</small><strong>contactyogesh247@gmail.com</strong></div><ArrowUpRight/></a><a href="tel:+918800279561"><span><Send size={19}/></span><div><small>PHONE</small><strong>+91 8800279561</strong></div><ArrowUpRight/></a><div className="contact-location"><MapPin size={19}/><div><small>BASED IN</small><strong>New Delhi, India</strong></div></div></div></div></section>
+      <section id="contact" className="contact-section"><div className="container contact-inner"><div><div className="section-kicker">06 / CONTACT</div><h2>LET'S BUILD<br/><span>SOMETHING USEFUL.</span></h2><p>Open to conversations around data analytics, reporting, business intelligence and automation.</p></div><div className="contact-card"><a href="mailto:contactyogesh247@gmail.com"><span><Mail size={19}/></span><div><small>EMAIL</small><strong>contactyogesh247@gmail.com</strong></div><ArrowUpRight/></a><a href="tel:+918800279561"><span><Send size={19}/></span><div><small>PHONE</small><strong>+91 8800279561</strong></div><ArrowUpRight/></a><a href="https://www.linkedin.com/in/yogeshgauryt/" target="_blank" rel="noreferrer"><span><Linkedin size={19}/></span><div><small>LINKEDIN</small><strong>linkedin.com/in/yogeshgauryt</strong></div><ArrowUpRight/></a><a href="https://www.youtube.com/yogeshtutorials" target="_blank" rel="noreferrer"><span><Youtube size={19}/></span><div><small>YOUTUBE</small><strong>youtube.com/@YogeshTutorials</strong></div><ArrowUpRight/></a></div></div></section>
 
       <footer className="site-footer">
   <div className="container footer-row">
